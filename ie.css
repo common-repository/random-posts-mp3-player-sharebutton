@@ -1,0 +1,16 @@
+/*
+Random Post Scroller v.1.4
+By DVS (Damns Virtual Studio)
+Updated Nov 7 2012
+Author : Damn (Dean Adjie Minwarie)
+Author URI : http://www.finderonly.net
+*/
+
+#DVS_content .dvs_random_posts {
+	float:left;
+	margin-left:-9px;
+	list-style:none;
+	width: 450px;}
+
+/*atchuh*/
+#gscroll{MARGIN-LEFT:0;overflow:hidden;width:410px;POSITION:relative;HEIGHT:25px;}

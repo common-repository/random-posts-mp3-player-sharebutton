@@ -1,0 +1,12 @@
+/*
+Random Post Slider + Social Share By Dean Adjie Minwarie
+Author URI: http://www.finderonly.net/
+Contribution script - > Go to Top Function by Neoease
+Author: mg12
+Update: 2008/05/05
+Author URI: http://www.neoease.com/
+*/
+/*Go to top by mg12*/
+(function(){function goTop(a,t){a=a||0.2;t=t||16;var x1=0;var y1=0;var x2=0;var y2=0;var x3=0;var y3=0;if(document.documentElement){x1=document.documentElement.scrollLeft||0;y1=document.documentElement.scrollTop||0}if(document.body){x2=document.body.scrollLeft||0;y2=document.body.scrollTop||0}var x3=window.scrollX||0;var y3=window.scrollY||0;var x=Math.max(x1,Math.max(x2,x3));var y=Math.max(y1,Math.max(y2,y3));var speed=1+a;window.scrollTo(Math.floor(x/speed),Math.floor(y/speed));if(x>0||y>0){var f="MGJS.goTop("+a+", "+t+")";window.setTimeout(f,t)}}window['MGJS']={};window['MGJS']['goTop']=goTop})();
+/*Slider*/
+function G(d){return document.getElementById(d)}var Slider=function(){function d(){clearInterval(m);m=setInterval(function(){i();g()},3E3)}function i(){clearInterval(n);if(!j){clearInterval(m);j=true;h();n=setInterval(function(){h()},e)}}function g(){clearInterval(n);if(c.scrollLeft%f!=0){b=f-c.scrollLeft%f;k()}else j=false;d()}function h(){if(c.scrollLeft>=o.scrollWidth)c.scrollLeft=0;c.scrollLeft+=l}function k(){if(b==0)s=j=false;else{var a,p=e;a=l;if(Math.abs(b)<f/5){a=Math.round(Math.abs(b/5));if(a<1)a=1}if(b<0){if(b<-a){b+=a;a=a}else{a=-b;b=0}c.scrollLeft-=a}else{if(b>a){b-=a;a=a}else{a=b;b=0}c.scrollLeft+=a}setTimeout(function(){k()},p)}}var e=11,l=11,f=413,j=false,n,b=0,m=null,s=false,o=G("holder1"),c=G("gscroll");G("holder2").innerHTML=o.innerHTML;c.scrollLeft=o.scrollWidth;return{init:function(){var a=G("gscroll"),p=G("recommend"),q=G("slide_left"),r=G("slide_right");p.onmouseover=function(){};p.onmouseout=function(){};a.onmouseover=function(){Slider.stop()};a.onmouseout=function(){Slider.play()};q.onmousedown=function(){Slider.up()};r.onmousedown=function(){Slider.down()};q.onmouseup=q.onmouseout=function(){Slider.stopUp()};r.onmouseup=r.onmouseout=function(){Slider.stopDown()};d()},play:d,stop:function(){clearInterval(m)},up:function(){if(!j){clearInterval(m);j=true;n=setInterval(function(){if(c.scrollLeft<=0)c.scrollLeft=o.offsetWidth;c.scrollLeft-=l},e)}},stopUp:function(){clearInterval(n);if(c.scrollLeft%f!=0){b=-(c.scrollLeft%f);k()}else j=false;d()},down:i,stopDown:g}}();Slider.init();
